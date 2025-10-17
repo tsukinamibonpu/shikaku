@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tsukinami Works - ITパスポート試験対策アプリの開発・提供">
+    <title>Tsukinami Works - 公式サイト</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            min-height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            border-bottom: 2px solid #2196F3;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #2196F3;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .tagline {
+            font-size: 16px;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        section {
+            margin: 40px 0;
+            padding: 0 20px;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #2196F3;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        h3 {
+            font-size: 18px;
+            color: #333;
+            margin: 20px 0 10px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        ul {
+            margin: 15px 0 15px 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .app-card {
+            background-color: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .app-card h3 {
+            color: #2196F3;
+            margin-top: 0;
+            font-size: 20px;
+        }
+
+        .app-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .feature-item {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 3px solid #2196F3;
+        }
+
+        .feature-item strong {
+            display: block;
+            color: #2196F3;
+            margin-bottom: 5px;
+        }
+
+        .contact-info {
+            background-color: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .contact-info a {
+            color: #1976D2;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding: 30px 20px;
+            border-top: 2px solid #e0e0e0;
+            text-align: center;
+            color: #666;
+        }
+
+        .footer-links {
+            margin: 20px 0;
+        }
+
+        .footer-links a {
+            color: #2196F3;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            margin-left: 10px;
+            font-weight: 500;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 40px 10px 30px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            section {
+                padding: 0 10px;
+            }
+
+            .app-features {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-links a {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Tsukinami Works</h1>
+            <p class="tagline">教育アプリの開発・提供</p>
+        </header>
+
+        <section id="about">
+            <h2>組織について</h2>
+            <p>
+                Tsukinami Worksは、教育分野に特化したモバイルアプリケーションの開発・提供を行っています。
+                高品質な学習体験を通じて、ユーザーの目標達成をサポートすることを使命としています。
+            </p>
+        </section>
+
+        <section id="apps">
+            <h2>公開中のアプリ</h2>
+            
+            <div class="app-card">
+                <h3>ITパスポート過去問 全問解説<span class="badge">公開中</span></h3>
+                <p>
+                    ITパスポート試験の過去問を一問一答形式で収録。2025年度最新版を含む2016年度春期以降の<strong>1,400問（14回分）</strong>を完全解説付きで学習できるアプリです。
+                </p>
+                
+                <h4 style="margin-top: 20px; color: #333;">主な機能</h4>
+                <div class="app-features">
+                    <div class="feature-item">
+                        <strong>📚 過去問学習</strong>
+                        <span>14回分・1,400問を収録</span>
+                    </div>
+                    <div class="feature-item">
+                        <strong>📊 分野別学習</strong>
+                        <span>苦手分野を集中攻略</span>
+                    </div>
+                    <div class="feature-item">
+                        <strong>✅ 模擬試験</strong>
+                        <span>本番形式で実力チェック</span>
+                    </div>
+                    <div class="feature-item">
+                        <strong>📈 学習管理</strong>
+                        <span>進捗と成績を可視化</span>
+                    </div>
+                </div>
+
+                <h4 style="margin-top: 20px; color: #333;">対象者</h4>
+                <ul>
+                    <li>ITパスポート試験をこれから受験する学生や社会人</li>
+                    <li>試験対策を効率的に進めたい短期学習者</li>
+                    <li>通勤・通学のスキマ時間を活用して学習したい方</li>
+                </ul>
+
+                <h4 style="margin-top: 20px; color: #333;">対応プラットフォーム</h4>
+                <p>Android（Google Play Store）</p>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>お問い合わせ</h2>
+            <div class="contact-info">
+                <p>アプリに関するお問い合わせ、不具合報告、ご意見・ご要望は、以下のメールアドレスまでお願いいたします。</p>
+                <p style="margin-top: 15px;">
+                    <strong>メールアドレス:</strong><br>
+                    <a href="mailto:tsukinami.works@outlook.com">tsukinami.works@outlook.com</a>
+                </p>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-links">
+                <a href="privacy-policy.html">プライバシーポリシー</a>
+                <a href="terms-of-service.html">利用規約</a>
+            </div>
+            <p>&copy; 2025 Tsukinami Works. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
+
