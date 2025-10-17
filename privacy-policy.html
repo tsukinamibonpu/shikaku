@@ -115,7 +115,7 @@
         <header>
             <h1>プライバシーポリシー</h1>
             <div class="app-name">ITパスポート過去問 全問解説</div>
-            <div class="updated-date">最終更新日: 2025年10月7日</div>
+            <div class="updated-date">最終更新日: 2025年10月17日</div>
         </header>
 
         <main>
@@ -222,30 +222,74 @@
             <h3>7.5 第三者による情報収集</h3>
             <p>広告配信パートナー（Google AdMob）は、独自のプライバシーポリシーに基づいて情報を収集します。詳細は以下をご確認ください：</p>
             <ul>
-                <li>Googleプライバシーポリシー：<a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a></li>
-                <li>Google広告設定：<a href="https://adssettings.google.com/" target="_blank">https://adssettings.google.com/</a></li>
+                <li>Googleプライバシーポリシー：<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">https://policies.google.com/privacy</a></li>
+                <li>Google広告設定：<a href="https://adssettings.google.com/" target="_blank" rel="noopener">https://adssettings.google.com/</a></li>
             </ul>
 
-            <h2>8. アプリ改善のためのデータ収集</h2>
-            <h3>8.1 収集するデータ（将来実装予定）</h3>
-            <p>本アプリは、サービス向上のために以下のデータを収集する場合があります：</p>
+            <h2>8. アプリ改善のためのデータ収集（Firebase Analytics / Crashlytics）</h2>
+            
+            <h3>8.1 使用するサービス</h3>
+            <p>本アプリは、サービス向上のために以下のGoogle Firebaseサービスを使用しています：</p>
             <ul>
-                <li><strong>利用状況データ</strong>：アプリの使用頻度、学習時間、機能の利用状況など</li>
-                <li><strong>パフォーマンスデータ</strong>：アプリのクラッシュ情報、エラーログなど</li>
-                <li><strong>匿名化された学習データ</strong>：問題の難易度分析、学習効果測定など</li>
+                <li><strong>Firebase Analytics</strong>：ユーザー行動の分析</li>
+                <li><strong>Firebase Crashlytics</strong>：クラッシュレポートの収集</li>
             </ul>
 
-            <h3>8.2 データ収集の条件</h3>
-            <p>これらのデータ収集は、以下の条件で実施されます：</p>
+            <h3>8.2 収集する情報</h3>
+            <p><strong>Firebase Analyticsを通じて以下の情報を収集します：</strong></p>
             <ul>
-                <li><strong>オプトイン方式</strong>：データ収集機能を実装する際、アプリ内で明確な説明を提示し、ユーザーの明示的な同意を得た場合のみ収集を開始します</li>
-                <li><strong>同意の撤回</strong>：ユーザーはいつでもアプリ設定からデータ収集の同意を撤回できます</li>
-                <li><strong>匿名化</strong>：収集されるデータは個人を特定できない形式で処理されます</li>
-                <li><strong>利用目的の制限</strong>：収集したデータはアプリの改善目的でのみ使用され、第三者への販売は行いません</li>
+                <li><strong>匿名デバイスID</strong>：ユーザーを識別するための匿名ID（個人を特定できない）</li>
+                <li><strong>アプリ使用状況</strong>：画面遷移、学習セッション時間、機能利用状況</li>
+                <li><strong>学習統計情報</strong>：解答数、正答率（問題内容や解答内容は送信しません）</li>
+                <li><strong>広告表示情報</strong>：広告の表示回数、クリック情報（AdMob連携による自動収集）</li>
+                <li><strong>デバイス情報</strong>：OS種別、機種名、アプリバージョン</li>
             </ul>
 
-            <h3>8.3 現在の状態</h3>
-            <p><strong>現時点では、上記のデータ収集機能は実装されていません。</strong>広告配信（Google AdMob）以外の外部サービスは利用していません。</p>
+            <p><strong>Firebase Crashlyticsを通じて以下の情報を収集します：</strong></p>
+            <ul>
+                <li><strong>クラッシュ情報</strong>：エラー発生時のスタックトレース</li>
+                <li><strong>デバイス情報</strong>：OS版、機種、メモリ使用状況</li>
+                <li><strong>アプリ状態</strong>：クラッシュ発生時の画面、実行中の処理</li>
+            </ul>
+
+            <h3>8.3 収集しない情報（重要）</h3>
+            <p>以下の情報は収集しません：</p>
+            <ul>
+                <li>個人を特定できる情報（PII）：氏名、メールアドレス、電話番号など</li>
+                <li>問題の内容や解答内容</li>
+                <li>学習ノートやメモの内容</li>
+            </ul>
+
+            <h3>8.4 データの利用目的</h3>
+            <ul>
+                <li>アプリの機能改善とバグ修正</li>
+                <li>ユーザー体験の最適化</li>
+                <li>クラッシュやエラーの迅速な解決</li>
+                <li>広告配信の最適化（AdMob連携）</li>
+                <li>利用統計の分析（MAU、利用時間、利用頻度など）</li>
+            </ul>
+
+            <h3>8.5 データの第三者共有</h3>
+            <p>収集されたデータは、以下の第三者に送信されます：</p>
+            <ul>
+                <li><strong>Google LLC</strong>：Firebase運営者として、分析とクラッシュレポートのデータを処理</li>
+                <li>Googleプライバシーポリシー：<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">https://policies.google.com/privacy</a></li>
+                <li>Firebase利用規約：<a href="https://firebase.google.com/terms" target="_blank" rel="noopener">https://firebase.google.com/terms</a></li>
+            </ul>
+
+            <h3>8.6 データの保持期間</h3>
+            <ul>
+                <li><strong>Firebase Analytics</strong>：14ヶ月（Firebaseのデフォルト設定）</li>
+                <li><strong>Firebase Crashlytics</strong>：90日間</li>
+            </ul>
+
+            <h3>8.7 オプトアウト（データ収集の無効化）</h3>
+            <p>ユーザーは、アプリ設定画面から以下の機能を無効にできます：</p>
+            <ul>
+                <li><strong>Firebase Analytics</strong>：ユーザー行動分析を無効化</li>
+                <li><strong>Firebase Crashlytics</strong>：クラッシュレポート送信を無効化</li>
+            </ul>
+            <p>無効化後も、アプリの基本的な学習機能は正常に動作します。</p>
 
             <h2>9. 子どものプライバシー</h2>
             <p>本アプリは、年齢に関係なく、すべてのユーザーに対して同じプライバシー保護を提供します。13歳未満の子どもを対象としたコンテンツは含まれていません。</p>
@@ -260,11 +304,11 @@
                 <li>広告配信は、Googleの安全な広告配信プラットフォームを使用しています</li>
             </ul>
 
-            <h2>11. ユーザーの権利</h2>
-            <h3>11.1 データアクセス権</h3>
+            <h2>12. ユーザーの権利</h2>
+            <h3>12.1 データアクセス権</h3>
             <p>ユーザーは、本アプリが収集した自身のデータへのアクセスを要求する権利を有します。</p>
 
-            <h3>11.2 データ削除権</h3>
+            <h3>12.2 データ削除権</h3>
             <p>ユーザーは、以下の方法で自身のデータを削除できます：</p>
             <ul>
                 <li><strong>学習データ</strong>：アプリ設定画面から「データリセット」を実行</li>
@@ -272,14 +316,14 @@
                 <li><strong>広告ID</strong>：デバイスの設定から広告IDをリセット</li>
             </ul>
 
-            <h3>11.3 データポータビリティ権</h3>
+            <h3>12.3 データポータビリティ権</h3>
             <p>将来的にデータエクスポート機能を実装する場合、ユーザーは自身のデータを他のサービスに移行できる形式で取得できます。</p>
 
-            <h3>11.4 同意の撤回権</h3>
+            <h3>12.4 同意の撤回権</h3>
             <p>ユーザーは、データ収集への同意をいつでも撤回できます。同意を撤回しても、撤回前に収集されたデータの適法性には影響しません。</p>
 
-            <h2>12. 国際的なプライバシー規制への対応</h2>
-            <h3>12.1 GDPR（EU一般データ保護規則）</h3>
+            <h2>13. 国際的なプライバシー規制への対応</h2>
+            <h3>13.1 GDPR（EU一般データ保護規則）</h3>
             <p>EUユーザーに対して、本アプリは以下の対応を行います：</p>
             <ul>
                 <li>初回起動時に広告配信に関する同意ダイアログを表示（AdMobのUMP SDK使用）</li>
@@ -287,7 +331,7 @@
                 <li>データ処理の合法的根拠を明確化</li>
             </ul>
 
-            <h3>12.2 CCPA（カリフォルニア州消費者プライバシー法）</h3>
+            <h3>13.2 CCPA（カリフォルニア州消費者プライバシー法）</h3>
             <p>カリフォルニア州ユーザーは、以下の権利を有します：</p>
             <ul>
                 <li>収集される個人情報のカテゴリと利用目的を知る権利</li>
@@ -295,17 +339,18 @@
                 <li>個人情報の販売をオプトアウトする権利（本アプリは個人情報を販売しません）</li>
             </ul>
 
-            <h2>13. プライバシーポリシーの変更</h2>
+            <h2>14. プライバシーポリシーの変更</h2>
             <p>本プライバシーポリシーは、法令の変更やアプリの機能追加に伴い、予告なく変更される場合があります。変更後のプライバシーポリシーは、本ページに掲載された時点で効力を生じます。</p>
             <p>重要な変更がある場合は、アプリ内で通知します。</p>
 
-            <h2>14. お問い合わせ</h2>
-            <p>本プライバシーポリシーに関するご質問やご意見がございましたら、以下の方法でお問い合わせください：</p>
-            <ul>
-                <li>GitHubリポジトリのIssue: <a href="https://github.com/tsukinamibonpu/shikaku/issues">https://github.com/tsukinamibonpu/shikaku/issues</a></li>
-            </ul>
+            <h2>15. お問い合わせ</h2>
+            <p>本プライバシーポリシーに関するご質問やご意見がございましたら、以下のメールアドレスまでお問い合わせください：</p>
+            <p style="margin-top: 15px;">
+                <strong>メールアドレス:</strong><br>
+                <a href="mailto:tsukinami.works@outlook.com">tsukinami.works@outlook.com</a>
+            </p>
 
-            <h2>15. 配信プラットフォーム</h2>
+            <h2>16. 配信プラットフォーム</h2>
             <p>本アプリは、以下のプラットフォームで配信されます：</p>
             <ul>
                 <li>Google Play Store（Android）</li>
@@ -313,7 +358,7 @@
             </ul>
             <p>各プラットフォームでのダウンロード、インストール、アップデートは、それぞれのストアの利用規約に従います。</p>
 
-            <h2>16. 適用範囲</h2>
+            <h2>17. 適用範囲</h2>
             <p>本プライバシーポリシーは、本アプリ「ITパスポート過去問 全問解説」にのみ適用されます。広告配信パートナーのプライバシーポリシーは、各社の規定に従います。</p>
         </main>
 
