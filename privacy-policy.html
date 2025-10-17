@@ -185,15 +185,22 @@
             <h2>6. 第三者へのデータ提供</h2>
             <p>本アプリは、ユーザーの学習データを第三者に販売することは一切ありません。ただし、以下の場合に限り、データを第三者と共有する場合があります：</p>
             <ul>
-                <li>広告配信パートナー（Google AdMob）：広告配信に必要な情報のみ</li>
-                <li>分析サービスプロバイダー：匿名化されたアプリ利用状況データ（将来実装予定）</li>
-                <li>法的要請がある場合：法令に基づく開示要求</li>
+                <li><strong>Google AdMob</strong>（広告配信パートナー）：広告配信に必要な情報（広告ID、デバイス情報など）</li>
+                <li><strong>Google Firebase</strong>（分析・品質監視サービス）：
+                    <ul style="margin-top: 8px;">
+                        <li>Firebase Analytics：匿名化されたアプリ利用状況データ</li>
+                        <li>Firebase Crashlytics：クラッシュレポートおよびエラー情報</li>
+                        <li>Firebase Performance Monitoring：パフォーマンス測定データ</li>
+                    </ul>
+                </li>
+                <li><strong>法的要請</strong>：法令に基づく開示要求がある場合</li>
             </ul>
             <p>これらの場合を除き、ユーザーの明示的な同意なく個人情報を第三者に提供することはありません。</p>
 
             <h2>7. 広告について</h2>
             <h3>7.1 広告配信サービス</h3>
             <p>本アプリは、無料で提供するため、Google AdMobを使用して広告を配信しています。本アプリのインストールおよび利用をもって、ユーザーは広告表示に同意したものとみなされます。</p>
+            <p>本アプリは、Firebase AnalyticsとGoogle AdMobを連携させることで、広告配信の最適化と収益向上を実現しています。</p>
             <p>AdMobは、ユーザーに関連性の高い広告を表示するために、以下の情報を収集する場合があります。</p>
 
             <h3>7.2 広告配信のために収集される情報</h3>
@@ -226,30 +233,51 @@
                 <li>Google広告設定：<a href="https://adssettings.google.com/" target="_blank" rel="noopener">https://adssettings.google.com/</a></li>
             </ul>
 
-            <h2>8. アプリ改善のためのデータ収集（Firebase Analytics / Crashlytics）</h2>
+            <h2>8. アプリ改善のためのデータ収集（Firebase）</h2>
             
             <h3>8.1 使用するサービス</h3>
             <p>本アプリは、サービス向上のために以下のGoogle Firebaseサービスを使用しています：</p>
             <ul>
-                <li><strong>Firebase Analytics</strong>：ユーザー行動の分析</li>
+                <li><strong>Firebase Analytics</strong>：ユーザー行動の分析とGoogle AdMob連携による広告最適化</li>
                 <li><strong>Firebase Crashlytics</strong>：クラッシュレポートの収集</li>
+                <li><strong>Firebase Performance Monitoring</strong>：アプリのパフォーマンス測定（段階的実装）</li>
             </ul>
 
             <h3>8.2 収集する情報</h3>
             <p><strong>Firebase Analyticsを通じて以下の情報を収集します：</strong></p>
             <ul>
                 <li><strong>匿名デバイスID</strong>：ユーザーを識別するための匿名ID（個人を特定できない）</li>
-                <li><strong>アプリ使用状況</strong>：画面遷移、学習セッション時間、機能利用状況</li>
-                <li><strong>学習統計情報</strong>：解答数、正答率（問題内容や解答内容は送信しません）</li>
-                <li><strong>広告表示情報</strong>：広告の表示回数、クリック情報（AdMob連携による自動収集）</li>
-                <li><strong>デバイス情報</strong>：OS種別、機種名、アプリバージョン</li>
+                <li><strong>アプリ使用状況</strong>：
+                    <ul style="margin-top: 8px;">
+                        <li>画面遷移（問題画面、解説画面、統計画面など）</li>
+                        <li>学習セッション時間（開始・終了時刻）</li>
+                        <li>機能利用状況（復習モード、年度別学習、分野別学習など）</li>
+                    </ul>
+                </li>
+                <li><strong>学習統計情報</strong>：解答数、正答率の集計値（個別の問題内容や解答内容は送信しません）</li>
+                <li><strong>広告関連情報</strong>：
+                    <ul style="margin-top: 8px;">
+                        <li>広告の表示回数、クリック情報（AdMob連携による自動収集）</li>
+                        <li>広告収益情報（eCPM等）</li>
+                        <li>広告読み込み失敗情報</li>
+                    </ul>
+                </li>
+                <li><strong>デバイス情報</strong>：OS種別、OS版、機種名、アプリバージョン、言語設定</li>
             </ul>
 
             <p><strong>Firebase Crashlyticsを通じて以下の情報を収集します：</strong></p>
             <ul>
-                <li><strong>クラッシュ情報</strong>：エラー発生時のスタックトレース</li>
-                <li><strong>デバイス情報</strong>：OS版、機種、メモリ使用状況</li>
-                <li><strong>アプリ状態</strong>：クラッシュ発生時の画面、実行中の処理</li>
+                <li><strong>クラッシュ情報</strong>：エラー発生時のスタックトレース、エラーメッセージ</li>
+                <li><strong>デバイス情報</strong>：OS版、機種、メモリ使用状況、ストレージ使用状況</li>
+                <li><strong>アプリ状態</strong>：クラッシュ発生時の画面、実行中の処理、アプリバージョン</li>
+                <li><strong>ANR情報</strong>：アプリ無応答（Application Not Responding）の発生状況</li>
+            </ul>
+
+            <p><strong>Firebase Performance Monitoringを通じて以下の情報を収集します（段階的実装）：</strong></p>
+            <ul>
+                <li><strong>画面遷移時間</strong>：画面の読み込みと描画にかかる時間</li>
+                <li><strong>データベース処理時間</strong>：問題取得やフィルタリング処理の所要時間</li>
+                <li><strong>アプリ起動時間</strong>：アプリ起動からメイン画面表示までの時間</li>
             </ul>
 
             <h3>8.3 収集しない情報（重要）</h3>
@@ -265,8 +293,16 @@
                 <li>アプリの機能改善とバグ修正</li>
                 <li>ユーザー体験の最適化</li>
                 <li>クラッシュやエラーの迅速な解決</li>
-                <li>広告配信の最適化（AdMob連携）</li>
-                <li>利用統計の分析（MAU、利用時間、利用頻度など）</li>
+                <li>アプリのパフォーマンス測定と改善</li>
+                <li><strong>広告配信の最適化（Firebase Analytics × AdMob連携）</strong>：
+                    <ul style="margin-top: 8px;">
+                        <li>ユーザー行動データに基づく広告配信の最適化</li>
+                        <li>eCPM（広告1,000回表示あたりの収益）の高い広告の優先表示</li>
+                        <li>適切なタイミングでの広告表示による収益向上</li>
+                        <li>ユーザーセグメント別の広告戦略最適化</li>
+                    </ul>
+                </li>
+                <li>利用統計の分析（MAU、DAU、利用時間、利用頻度など）</li>
             </ul>
 
             <h3>8.5 データの第三者共有</h3>
@@ -281,15 +317,18 @@
             <ul>
                 <li><strong>Firebase Analytics</strong>：14ヶ月（Firebaseのデフォルト設定）</li>
                 <li><strong>Firebase Crashlytics</strong>：90日間</li>
+                <li><strong>Firebase Performance Monitoring</strong>：90日間</li>
             </ul>
+            <p>データ保持期間経過後、収集されたデータは自動的に削除されます。</p>
 
             <h3>8.7 オプトアウト（データ収集の無効化）</h3>
             <p>ユーザーは、アプリ設定画面から以下の機能を無効にできます：</p>
             <ul>
-                <li><strong>Firebase Analytics</strong>：ユーザー行動分析を無効化</li>
+                <li><strong>Firebase Analytics</strong>：ユーザー行動分析を無効化（広告配信の最適化も無効化されます）</li>
                 <li><strong>Firebase Crashlytics</strong>：クラッシュレポート送信を無効化</li>
+                <li><strong>Firebase Performance Monitoring</strong>：パフォーマンス測定を無効化</li>
             </ul>
-            <p>無効化後も、アプリの基本的な学習機能は正常に動作します。</p>
+            <p>無効化後も、アプリの基本的な学習機能は正常に動作します。ただし、Firebase Analyticsを無効化すると、広告収益の最適化が機能しなくなります。</p>
 
             <h2>9. 子どものプライバシー</h2>
             <p>本アプリは、年齢に関係なく、すべてのユーザーに対して同じプライバシー保護を提供します。13歳未満の子どもを対象としたコンテンツは含まれていません。</p>
@@ -299,9 +338,21 @@
             <p>本アプリは、ユーザーのデータを保護するために、以下の対策を講じています：</p>
             <ul>
                 <li>学習データは端末内のアプリ専用領域に保存され、他のアプリからアクセスできません</li>
-                <li>学習データの外部送信は一切行いません（広告配信に必要な情報を除く）</li>
+                <li>学習データの外部送信は一切行いません</li>
+                <li>Firebaseに送信されるデータは、すべて暗号化された通信（HTTPS/TLS）で保護されます</li>
+                <li>匿名IDのみを使用し、個人を特定できる情報は収集しません</li>
                 <li>不要な権限の要求は行いません</li>
                 <li>広告配信は、Googleの安全な広告配信プラットフォームを使用しています</li>
+            </ul>
+
+            <h2>11. Firebase初期化と認証について</h2>
+            <p>本アプリは、以下の方針でFirebaseを使用しています：</p>
+            <ul>
+                <li><strong>認証なし</strong>：Firebase AuthenticationやSign-in機能は使用しません</li>
+                <li><strong>匿名識別</strong>：Firebase App Instance IDまたはカスタムUUIDを使用してユーザーを識別します</li>
+                <li><strong>自動初期化</strong>：アプリ起動時にFirebaseが自動初期化されます</li>
+                <li><strong>オフライン動作</strong>：Firebase初期化失敗時も、アプリの学習機能は正常に動作します</li>
+                <li><strong>データキャッシュ</strong>：オフライン時はイベントをキャッシュし、オンライン復帰時に送信します</li>
             </ul>
 
             <h2>12. ユーザーの権利</h2>
@@ -311,10 +362,13 @@
             <h3>12.2 データ削除権</h3>
             <p>ユーザーは、以下の方法で自身のデータを削除できます：</p>
             <ul>
-                <li><strong>学習データ</strong>：アプリ設定画面から「データリセット」を実行</li>
-                <li><strong>アプリデータ全体</strong>：アプリをアンインストール</li>
+                <li><strong>学習データ（端末内）</strong>：アプリ設定画面から「データリセット」を実行</li>
+                <li><strong>アプリデータ全体（端末内）</strong>：アプリをアンインストール</li>
+                <li><strong>Firebase Analytics データ</strong>：アプリをアンインストールすると、新しいデータは送信されなくなり、既存データは保持期間（14ヶ月）経過後に自動削除されます</li>
+                <li><strong>Firebase Crashlytics データ</strong>：保持期間（90日間）経過後に自動削除されます</li>
                 <li><strong>広告ID</strong>：デバイスの設定から広告IDをリセット</li>
             </ul>
+            <p>Firebase上のデータの即時削除を希望する場合は、お問い合わせ窓口までご連絡ください。</p>
 
             <h3>12.3 データポータビリティ権</h3>
             <p>将来的にデータエクスポート機能を実装する場合、ユーザーは自身のデータを他のサービスに移行できる形式で取得できます。</p>
@@ -322,35 +376,18 @@
             <h3>12.4 同意の撤回権</h3>
             <p>ユーザーは、データ収集への同意をいつでも撤回できます。同意を撤回しても、撤回前に収集されたデータの適法性には影響しません。</p>
 
-            <h2>13. 国際的なプライバシー規制への対応</h2>
-            <h3>13.1 GDPR（EU一般データ保護規則）</h3>
-            <p>EUユーザーに対して、本アプリは以下の対応を行います：</p>
-            <ul>
-                <li>初回起動時に広告配信に関する同意ダイアログを表示（AdMobのUMP SDK使用）</li>
-                <li>ユーザーの権利（アクセス、削除、移植、異議申し立て）を保証</li>
-                <li>データ処理の合法的根拠を明確化</li>
-            </ul>
-
-            <h3>13.2 CCPA（カリフォルニア州消費者プライバシー法）</h3>
-            <p>カリフォルニア州ユーザーは、以下の権利を有します：</p>
-            <ul>
-                <li>収集される個人情報のカテゴリと利用目的を知る権利</li>
-                <li>個人情報の削除を要求する権利</li>
-                <li>個人情報の販売をオプトアウトする権利（本アプリは個人情報を販売しません）</li>
-            </ul>
-
-            <h2>14. プライバシーポリシーの変更</h2>
+            <h2>13. プライバシーポリシーの変更</h2>
             <p>本プライバシーポリシーは、法令の変更やアプリの機能追加に伴い、予告なく変更される場合があります。変更後のプライバシーポリシーは、本ページに掲載された時点で効力を生じます。</p>
             <p>重要な変更がある場合は、アプリ内で通知します。</p>
 
-            <h2>15. お問い合わせ</h2>
+            <h2>14. お問い合わせ</h2>
             <p>本プライバシーポリシーに関するご質問やご意見がございましたら、以下のメールアドレスまでお問い合わせください：</p>
             <p style="margin-top: 15px;">
                 <strong>メールアドレス:</strong><br>
                 <a href="mailto:tsukinami.works@outlook.com">tsukinami.works@outlook.com</a>
             </p>
 
-            <h2>16. 配信プラットフォーム</h2>
+            <h2>15. 配信プラットフォーム</h2>
             <p>本アプリは、以下のプラットフォームで配信されます：</p>
             <ul>
                 <li>Google Play Store（Android）</li>
@@ -358,8 +395,14 @@
             </ul>
             <p>各プラットフォームでのダウンロード、インストール、アップデートは、それぞれのストアの利用規約に従います。</p>
 
-            <h2>17. 適用範囲</h2>
-            <p>本プライバシーポリシーは、本アプリ「ITパスポート過去問 全問解説」にのみ適用されます。広告配信パートナーのプライバシーポリシーは、各社の規定に従います。</p>
+            <h2>16. 適用範囲</h2>
+            <p>本プライバシーポリシーは、本アプリ「ITパスポート過去問 全問解説」にのみ適用されます。</p>
+            <p>以下のサービスは、それぞれ独自のプライバシーポリシーに従います：</p>
+            <ul>
+                <li>Google AdMob（広告配信）</li>
+                <li>Google Firebase（Analytics、Crashlytics、Performance Monitoring）</li>
+            </ul>
+            <p>詳細は、各サービスのプライバシーポリシーをご確認ください。</p>
         </main>
 
         <footer>
